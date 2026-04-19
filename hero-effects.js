@@ -74,7 +74,7 @@ function setupParticles() {
 function setupTurbulentBackground() {
   const mount = document.getElementById("turbulent-bg");
 
-  if (!mount || prefersReducedMotion || window.innerWidth < 860) {
+  if (!mount || prefersReducedMotion) {
     return;
   }
 
@@ -252,13 +252,11 @@ function setupTurbulentBackground() {
   const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
   scene.add(mesh);
   mount.appendChild(renderer.domElement);
-  let isActive = true;
-
   const resize = () => {
     const width = mount.clientWidth || window.innerWidth;
     const height = mount.clientHeight || window.innerHeight;
     renderer.setSize(width, height, false);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 860 ? 1.2 : 2));
     uniforms.u_resolution.value.set(width, height);
   };
 
@@ -285,24 +283,11 @@ function setupTurbulentBackground() {
     { passive: true }
   );
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth < 860) {
-      isActive = false;
-      renderer.domElement.remove();
-      renderer.dispose();
-      return;
-    }
-
-    resize();
-  });
+  window.addEventListener("resize", resize);
 
   let time = 0;
 
   const render = () => {
-    if (!isActive) {
-      return;
-    }
-
     time += 0.007;
     uniforms.u_time.value = time;
     renderer.render(scene, camera);

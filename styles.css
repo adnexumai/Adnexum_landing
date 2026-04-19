@@ -397,6 +397,7 @@ section[id] {
   min-height: 43rem;
   display: grid;
   align-items: end;
+  overflow: visible;
 }
 
 .hero-visual {
@@ -1315,11 +1316,14 @@ spline-viewer::part(logo) {
   }
 
   .hero-stage {
-    min-height: auto;
+    min-height: 34rem;
+    padding-top: 6rem;
   }
 
   .hero-visual {
-    display: none;
+    display: block;
+    inset: -2rem -2rem 5.5rem -1.5rem;
+    opacity: 0.72;
   }
 
   .hero-stage .hero-board {
@@ -1347,6 +1351,16 @@ spline-viewer::part(logo) {
 
   .hero-grid {
     min-height: auto;
+  }
+
+  .hero-stage {
+    min-height: 29rem;
+    padding-top: 5rem;
+  }
+
+  .hero-visual {
+    inset: -1rem -3.2rem 6rem -3.2rem;
+    opacity: 0.6;
   }
 
   #particles {
