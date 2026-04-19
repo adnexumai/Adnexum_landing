@@ -59,10 +59,14 @@
         <nav class="nav-panel" id="navPanel" aria-label="Principal">
           <a href="#sistema">Sistema</a>
           <a href="#proceso">Proceso</a>
+          <a href="#calculadora">ROI</a>
           <a href="#casos">Casos</a>
-          <a href="#faq">FAQ</a>
-          <a class="nav-cta" href="mailto:adnexum.net@gmail.com?subject=Quiero%20mi%20diagnóstico%20gratis">
-            Diagnóstico gratis
+          <a
+            class="nav-cta"
+            data-wa-link="Hola Tomás, quiero hablar por WhatsApp para revisar mi proceso comercial."
+            href="#"
+          >
+            WhatsApp directo
           </a>
         </nav>
       </div>
@@ -84,10 +88,14 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button button-primary" href="mailto:adnexum.net@gmail.com?subject=Quiero%20mi%20diagnóstico%20gratis">
-                Quiero mi diagnóstico gratis
+              <a
+                class="button button-primary"
+                data-wa-link="Hola Tomás, quiero mi diagnóstico gratis para revisar mi proceso comercial."
+                href="#"
+              >
+                Hablar por WhatsApp
               </a>
-              <a class="button button-secondary" href="#proceso">Ver cómo funciona</a>
+              <a class="button button-secondary" href="#calculadora">Calcular pérdida</a>
             </div>
 
             <ul class="hero-points" aria-label="Beneficios principales">
@@ -471,34 +479,104 @@
         </div>
       </section>
 
-      <section class="section" id="metricas">
-        <div class="section-frame metrics-layout">
-          <div class="metrics-copy reveal">
-            <p class="eyebrow">IMPACTO OPERATIVO</p>
-            <h2>Menos demora. Menos fuga. Más control sobre lo que ya pagás para captar.</h2>
+      <section class="section calculator-section" id="calculadora">
+        <div class="section-frame">
+          <div class="section-heading reveal">
+            <p class="eyebrow">CALCULADORA DE PÉRDIDA</p>
+            <h2>Traé tus números y veamos cuánto se te está yendo por la ventana.</h2>
             <p>
-              Cada negocio cambia distinto, pero la mejora operativa se nota rápido: tiempo de respuesta,
-              seguimiento consistente y visibilidad para corregir el sistema.
+              Esta estimación está pensada para discovery. Ajustás cuatro variables y ves rápido
+              cuántas consultas, ventas y dólares podrías estar perdiendo por demora o falta de seguimiento.
             </p>
           </div>
 
-          <div class="metrics-grid">
-            <article class="metric-card reveal">
-              <strong data-count="5" data-prefix="&lt; " data-suffix=" seg">&lt; 5 seg</strong>
-              <span>Primera respuesta automática</span>
-            </article>
-            <article class="metric-card reveal">
-              <strong data-count="24" data-suffix="/7">24/7</strong>
-              <span>Cobertura comercial continua</span>
-            </article>
-            <article class="metric-card reveal">
-              <strong data-count="3" data-suffix=" semanas">3 semanas</strong>
-              <span>Implementación inicial habitual</span>
-            </article>
-            <article class="metric-card reveal">
-              <strong data-count="100" data-suffix="%">100%</strong>
-              <span>Trazabilidad del lead en el proceso</span>
-            </article>
+          <div class="calculator-grid">
+            <form class="calculator-panel reveal" id="lossCalculator">
+              <div class="calc-input-grid">
+                <label class="field">
+                  <span>Consultas por día (WhatsApp/redes)</span>
+                  <input id="dailyLeads" type="number" min="0" step="1" value="15" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span>% que creen que se pierden o no responden a tiempo</span>
+                  <input id="lostPercent" type="number" min="0" max="100" step="1" value="30" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span>Ticket promedio de venta (USD)</span>
+                  <input id="averageTicket" type="number" min="0" step="50" value="1500" inputmode="numeric">
+                </label>
+                <label class="field">
+                  <span>Tasa de cierre actual estimada (%)</span>
+                  <input id="closeRate" type="number" min="0" max="100" step="1" value="10" inputmode="numeric">
+                </label>
+              </div>
+
+              <p class="calculator-footnote">
+                Estimación sobre 26 días operativos por mes. Úsala para dimensionar el costo de no responder o seguir.
+              </p>
+
+              <div class="calculator-results" aria-label="Resultados de la calculadora">
+                <article class="calc-result-card">
+                  <span>Consultas perdidas/día</span>
+                  <strong id="resultLostPerDay">5</strong>
+                </article>
+                <article class="calc-result-card">
+                  <span>Consultas perdidas/mes</span>
+                  <strong id="resultLostPerMonth">130</strong>
+                </article>
+                <article class="calc-result-card">
+                  <span>Ventas potenciales/mes</span>
+                  <strong id="resultPotentialSales">13</strong>
+                </article>
+                <article class="calc-result-card calc-result-card--accent">
+                  <span>Plata que se va por la ventana cada mes</span>
+                  <strong id="resultMonthlyLoss">USD 19.500</strong>
+                </article>
+              </div>
+            </form>
+
+            <div class="calculator-contact reveal">
+              <p class="eyebrow">MANDAME EL CÁLCULO</p>
+              <h3>Completá este formulario y seguimos por WhatsApp.</h3>
+              <p>
+                Se abre WhatsApp con tus datos y el resumen del cálculo listo para seguir la conversación
+                sin perder contexto.
+              </p>
+
+              <form class="lead-form" id="roiLeadForm">
+                <div class="lead-grid">
+                  <label class="field">
+                    <span>Nombre</span>
+                    <input id="leadName" type="text" placeholder="Tu nombre" required>
+                  </label>
+                  <label class="field">
+                    <span>Negocio</span>
+                    <input id="leadBusiness" type="text" placeholder="Nombre del negocio" required>
+                  </label>
+                  <label class="field">
+                    <span>Email</span>
+                    <input id="leadEmail" type="email" placeholder="nombre@empresa.com">
+                  </label>
+                  <label class="field">
+                    <span>WhatsApp</span>
+                    <input id="leadPhone" type="tel" placeholder="+54 9 ...">
+                  </label>
+                </div>
+
+                <label class="field field-full">
+                  <span>Contexto</span>
+                  <textarea id="leadContext" rows="4" placeholder="¿Qué vendés y dónde sentís que más se cae la venta?"></textarea>
+                </label>
+
+                <button class="button button-primary" type="submit">
+                  Enviar resultado por WhatsApp
+                </button>
+              </form>
+
+              <a class="button button-secondary calculator-link" id="calculatorWhatsAppLink" href="#">
+                Ir directo a WhatsApp con este cálculo
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -551,29 +629,26 @@
         <div class="section-frame cta-panel reveal">
           <div class="cta-copy">
             <p class="eyebrow">SIGUIENTE PASO</p>
-            <h2>¿Cuántas ventas perdiste esta semana por fricción operativa?</h2>
+            <h2>Si el número te duele, seguimos por WhatsApp.</h2>
             <p>
-              Hacemos un diagnóstico corto para revisar tu flujo actual, detectar dónde se cae dinero y
-              decirte si realmente tiene sentido implementar este sistema en tu caso.
+              Hacemos una revisión corta de tu flujo actual, del cálculo de pérdida y de lo que tendría
+              sentido automatizar primero para que el impacto sea visible.
             </p>
           </div>
 
           <div class="cta-actions">
-            <a class="button button-primary" href="mailto:adnexum.net@gmail.com?subject=Quiero%20mi%20diagnóstico%20gratis">
-              Agendar diagnóstico
-            </a>
             <a
-              class="button button-secondary"
-              href="https://instagram.com/bravotomas.ia"
-              target="_blank"
-              rel="noreferrer"
+              class="button button-primary"
+              data-wa-link="Hola Tomás, quiero revisar mi cálculo de pérdida y ver si tiene sentido automatizar mi proceso."
+              href="#"
             >
-              Escribirme por Instagram
+              Hablar por WhatsApp
             </a>
+            <a class="button button-secondary" href="#calculadora">Usar calculadora</a>
           </div>
 
           <ul class="cta-notes" aria-label="Condiciones del diagnóstico">
-            <li>Revisión de 30 minutos.</li>
+            <li>Traé tus números y lo aterrizamos en minutos.</li>
             <li>Sin compromiso ni tecnicismos innecesarios.</li>
             <li>Ideal para negocios que ya tienen demanda y quieren vender mejor.</li>
           </ul>

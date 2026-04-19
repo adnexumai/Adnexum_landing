@@ -868,31 +868,146 @@ section[id] {
   color: var(--muted-strong);
 }
 
-.metrics-layout {
+.calculator-section {
+  padding-top: 1rem;
+}
+
+.calculator-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 1.4rem;
   align-items: start;
 }
 
-.metrics-grid {
-  justify-content: stretch;
-  align-items: stretch;
-  gap: 1rem;
-  flex-wrap: wrap;
+.calculator-panel,
+.calculator-contact {
+  padding: 1.45rem;
+  border-radius: calc(var(--radius-lg) + 2px);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
 }
 
-.metric-card {
-  min-height: 11rem;
+.calc-input-grid,
+.calculator-results,
+.lead-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.calc-input-grid,
+.lead-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field span {
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text);
+  padding: 0.95rem 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--muted-strong);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: rgba(255, 122, 26, 0.38);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 4px rgba(255, 122, 26, 0.1);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 7rem;
+}
+
+.field-full {
+  margin-top: 1rem;
+}
+
+.calculator-footnote,
+.calculator-contact p {
+  color: var(--muted);
+}
+
+.calculator-footnote {
+  margin: 1rem 0 0;
+}
+
+.calculator-results {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.2rem;
+}
+
+.calc-result-card {
+  min-height: 10.5rem;
+  padding: 1.2rem;
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.035);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1 1 220px;
 }
 
-.metric-card strong {
-  margin-top: 0;
-  font-size: clamp(2rem, 5vw, 3.3rem);
+.calc-result-card span {
+  color: var(--muted);
+}
+
+.calc-result-card strong {
+  margin-top: 0.8rem;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.05em;
+}
+
+.calc-result-card--accent {
+  background:
+    radial-gradient(circle at top left, rgba(255, 122, 26, 0.16), transparent 55%),
+    rgba(255, 255, 255, 0.035);
+}
+
+.calculator-contact h3 {
+  margin: 0;
+  font-family: "Sora", sans-serif;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  letter-spacing: -0.04em;
+}
+
+.calculator-contact .eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.lead-form {
+  margin-top: 1.2rem;
+}
+
+.lead-form .button-primary {
+  margin-top: 1rem;
+}
+
+.calculator-link {
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .faq-grid {
@@ -1017,7 +1132,7 @@ section[id] {
 @media (max-width: 1080px) {
   .hero-grid,
   .modules-layout,
-  .metrics-layout,
+  .calculator-grid,
   .cta-panel,
   .footer-shell {
     grid-template-columns: 1fr;
@@ -1025,7 +1140,8 @@ section[id] {
 
   .problem-grid,
   .results-grid,
-  .faq-grid {
+  .faq-grid,
+  .calculator-results {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1079,7 +1195,10 @@ section[id] {
   .problem-grid,
   .modules-grid,
   .results-grid,
-  .faq-grid {
+  .faq-grid,
+  .calculator-results,
+  .calc-input-grid,
+  .lead-grid {
     grid-template-columns: 1fr;
   }
 
