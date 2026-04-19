@@ -21,14 +21,6 @@
     rel="stylesheet"
   >
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-      }
-    }
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
   <script type="application/ld+json">
     {
@@ -44,7 +36,6 @@
   </script>
 </head>
 <body>
-  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="page-shell">
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
@@ -84,7 +75,6 @@
 
     <main>
       <section class="hero section">
-        <div id="turbulent-bg" aria-hidden="true"></div>
         <div class="section-frame hero-grid">
           <div class="hero-copy reveal">
             <p class="eyebrow">AUTOMATIZACIÓN COMERCIAL CON IA</p>
@@ -116,7 +106,7 @@
             </ul>
           </div>
 
-          <div class="hero-stage reveal" aria-hidden="true">
+          <div class="hero-stage" aria-hidden="true">
             <div class="hero-visual">
               <svg class="spotlight-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none">
                 <g filter="url(#spotlight-filter)">
@@ -148,10 +138,11 @@
               </svg>
 
               <spline-viewer
-                url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                url="https://prod.spline.design/us3ALejTXl6usHZ7/scene.splinecode"
                 loading-anim-type="spinner-small-dark"
               ></spline-viewer>
             </div>
+            <div class="hero-overlay"></div>
 
             <!--
             <div class="hero-board">
@@ -817,6 +808,5 @@
   </div>
 
   <script src="./script.js" defer></script>
-  <script type="module" src="./hero-effects.js"></script>
 </body>
 </html>
