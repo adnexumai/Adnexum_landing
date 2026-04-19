@@ -394,15 +394,15 @@ section[id] {
 
 .hero-stage {
   position: relative;
-  min-height: 43rem;
+  min-height: 39rem;
   display: grid;
-  align-items: end;
+  align-items: center;
   overflow: visible;
 }
 
 .hero-visual {
   position: absolute;
-  inset: -4rem -6rem 4rem 1rem;
+  inset: -4rem -6rem -2rem 0;
   z-index: 1;
   opacity: 0.98;
   pointer-events: none;
@@ -672,6 +672,39 @@ spline-viewer::part(logo) {
 
 .proof-row span:last-child::after {
   display: none;
+}
+
+.operation-grid,
+.operation-steps {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.operation-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.operation-feature {
+  grid-column: span 2;
+}
+
+.operation-feature .signal-card {
+  margin-top: 1.15rem;
+}
+
+.operation-mini {
+  min-height: 100%;
+}
+
+.operation-steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.2rem;
+}
+
+.operation-step-card {
+  align-items: flex-start;
+  min-height: 100%;
 }
 
 .section-heading,
@@ -1229,7 +1262,8 @@ spline-viewer::part(logo) {
   .problem-grid,
   .results-grid,
   .faq-grid,
-  .calculator-results {
+  .calculator-results,
+  .operation-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1252,11 +1286,15 @@ spline-viewer::part(logo) {
   }
 
   .hero-stage {
-    min-height: 36rem;
+    min-height: 30rem;
   }
 
   .hero-visual {
-    inset: -3rem -3rem 6rem 0;
+    inset: -2rem -2rem -1rem -1rem;
+  }
+
+  .operation-feature {
+    grid-column: 1 / -1;
   }
 
   .cta-notes {
@@ -1294,7 +1332,9 @@ spline-viewer::part(logo) {
   .faq-grid,
   .calculator-results,
   .calc-input-grid,
-  .lead-grid {
+  .lead-grid,
+  .operation-grid,
+  .operation-steps {
     grid-template-columns: 1fr;
   }
 
@@ -1316,14 +1356,18 @@ spline-viewer::part(logo) {
   }
 
   .hero-stage {
-    min-height: 34rem;
-    padding-top: 6rem;
+    min-height: 22rem;
+    padding-top: 0;
   }
 
   .hero-visual {
     display: block;
-    inset: -2rem -2rem 5.5rem -1.5rem;
-    opacity: 0.72;
+    inset: -1rem -1.5rem -1.5rem -1rem;
+    opacity: 0.74;
+  }
+
+  .operation-feature {
+    grid-column: auto;
   }
 
   .hero-stage .hero-board {
@@ -1354,12 +1398,12 @@ spline-viewer::part(logo) {
   }
 
   .hero-stage {
-    min-height: 29rem;
-    padding-top: 5rem;
+    min-height: 18rem;
+    padding-top: 0;
   }
 
   .hero-visual {
-    inset: -1rem -3.2rem 6rem -3.2rem;
+    inset: -0.75rem -2rem -1.5rem -2rem;
     opacity: 0.6;
   }
 
