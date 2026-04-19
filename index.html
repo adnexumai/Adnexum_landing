@@ -20,6 +20,15 @@
     href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
     rel="stylesheet"
   >
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <link rel="stylesheet" href="./styles.css">
   <script type="application/ld+json">
     {
@@ -35,6 +44,7 @@
   </script>
 </head>
 <body>
+  <canvas id="particles" aria-hidden="true"></canvas>
   <div class="page-shell">
     <div class="ambient ambient-one" aria-hidden="true"></div>
     <div class="ambient ambient-two" aria-hidden="true"></div>
@@ -74,6 +84,7 @@
 
     <main>
       <section class="hero section">
+        <div id="turbulent-bg" aria-hidden="true"></div>
         <div class="section-frame hero-grid">
           <div class="hero-copy reveal">
             <p class="eyebrow">AUTOMATIZACIÓN COMERCIAL CON IA</p>
@@ -105,84 +116,122 @@
             </ul>
           </div>
 
-          <div class="hero-board reveal">
-            <div class="board-panel">
-              <div class="board-top">
-                <div>
-                  <p class="board-kicker">SalesOS para PYMEs</p>
-                  <h2>Operación comercial en tiempo real</h2>
-                </div>
-                <span class="live-pill">24/7 activo</span>
-              </div>
+          <div class="hero-stage reveal">
+            <div class="hero-visual" aria-hidden="true">
+              <svg class="spotlight-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3787 2842" fill="none">
+                <g filter="url(#spotlight-filter)">
+                  <ellipse
+                    cx="1924.71"
+                    cy="273.501"
+                    rx="1924.71"
+                    ry="273.501"
+                    transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
+                    fill="white"
+                    fill-opacity="0.21"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="spotlight-filter"
+                    x="0.86"
+                    y="0.84"
+                    width="3785.16"
+                    height="2840.26"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                    <feGaussianBlur stdDeviation="151" result="effect1_foregroundBlur" />
+                  </filter>
+                </defs>
+              </svg>
 
-              <article class="signal-card">
-                <div class="signal-meta">
-                  <span>Lead entrante · WhatsApp</span>
-                  <span>14:02</span>
-                </div>
-                <h3>Consulta por automatización comercial</h3>
-                <p>
-                  El sistema responde, detecta intención de compra y avisa al equipo solo
-                  cuando vale la pena intervenir.
-                </p>
-              </article>
-
-              <div class="board-grid">
-                <article class="mini-panel">
-                  <span class="mini-label">Respuesta</span>
-                  <strong>&lt; 5 seg</strong>
-                  <p>Primera intervención automática.</p>
-                </article>
-                <article class="mini-panel">
-                  <span class="mini-label">Score</span>
-                  <strong>84/100</strong>
-                  <p>Lead listo para vendedor.</p>
-                </article>
-                <article class="mini-panel">
-                  <span class="mini-label">Seguimiento</span>
-                  <strong>D+1 / D+3 / D+7</strong>
-                  <p>Recuperación automática de fríos.</p>
-                </article>
-                <article class="mini-panel">
-                  <span class="mini-label">Trazabilidad</span>
-                  <strong>100%</strong>
-                  <p>Cada contacto queda medido.</p>
-                </article>
-              </div>
-
-              <div class="timeline-list" aria-label="Flujo operativo">
-                <div class="timeline-item">
-                  <span class="timeline-step">01</span>
-                  <div>
-                    <strong>Captura y responde</strong>
-                    <p>Inbox unificado y respuesta instantánea.</p>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-step">02</span>
-                  <div>
-                    <strong>Califica con criterio</strong>
-                    <p>Filtro real según tu forma de vender.</p>
-                  </div>
-                </div>
-                <div class="timeline-item">
-                  <span class="timeline-step">03</span>
-                  <div>
-                    <strong>Deriva o reactiva</strong>
-                    <p>El humano entra cuando corresponde.</p>
-                  </div>
-                </div>
-              </div>
+              <spline-viewer
+                url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                loading-anim-type="spinner-small-dark"
+              ></spline-viewer>
             </div>
 
-            <div class="floating-note floating-note-one">
-              <span class="floating-tag">Consultas pendientes</span>
-              <strong>14 → 0</strong>
-            </div>
+            <div class="hero-board">
+              <div class="board-panel">
+                <div class="board-top">
+                  <div>
+                    <p class="board-kicker">SalesOS para PYMEs</p>
+                    <h2>Operación comercial en tiempo real</h2>
+                  </div>
+                  <span class="live-pill">24/7 activo</span>
+                </div>
 
-            <div class="floating-note floating-note-two">
-              <span class="floating-tag">Equipo comercial</span>
-              <strong>Solo entra con contexto</strong>
+                <article class="signal-card">
+                  <div class="signal-meta">
+                    <span>Lead entrante · WhatsApp</span>
+                    <span>14:02</span>
+                  </div>
+                  <h3>Consulta por automatización comercial</h3>
+                  <p>
+                    El sistema responde, detecta intención de compra y avisa al equipo solo
+                    cuando vale la pena intervenir.
+                  </p>
+                </article>
+
+                <div class="board-grid">
+                  <article class="mini-panel">
+                    <span class="mini-label">Respuesta</span>
+                    <strong>&lt; 5 seg</strong>
+                    <p>Primera intervención automática.</p>
+                  </article>
+                  <article class="mini-panel">
+                    <span class="mini-label">Score</span>
+                    <strong>84/100</strong>
+                    <p>Lead listo para vendedor.</p>
+                  </article>
+                  <article class="mini-panel">
+                    <span class="mini-label">Seguimiento</span>
+                    <strong>D+1 / D+3 / D+7</strong>
+                    <p>Recuperación automática de fríos.</p>
+                  </article>
+                  <article class="mini-panel">
+                    <span class="mini-label">Trazabilidad</span>
+                    <strong>100%</strong>
+                    <p>Cada contacto queda medido.</p>
+                  </article>
+                </div>
+
+                <div class="timeline-list" aria-label="Flujo operativo">
+                  <div class="timeline-item">
+                    <span class="timeline-step">01</span>
+                    <div>
+                      <strong>Captura y responde</strong>
+                      <p>Inbox unificado y respuesta instantánea.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-step">02</span>
+                    <div>
+                      <strong>Califica con criterio</strong>
+                      <p>Filtro real según tu forma de vender.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <span class="timeline-step">03</span>
+                    <div>
+                      <strong>Deriva o reactiva</strong>
+                      <p>El humano entra cuando corresponde.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="floating-note floating-note-one">
+                <span class="floating-tag">Consultas pendientes</span>
+                <strong>14 → 0</strong>
+              </div>
+
+              <div class="floating-note floating-note-two">
+                <span class="floating-tag">Equipo comercial</span>
+                <strong>Solo entra con contexto</strong>
+              </div>
             </div>
           </div>
         </div>
@@ -679,5 +728,6 @@
   </div>
 
   <script src="./script.js" defer></script>
+  <script type="module" src="./hero-effects.js"></script>
 </body>
 </html>
